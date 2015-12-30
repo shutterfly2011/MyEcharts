@@ -132,7 +132,9 @@ var option = {
             echarts: 'js'
         }
     });
+	/*
 	var ecConfig = require ('config');
+	*/
 	require(
             [
                 'echarts',
@@ -140,9 +142,12 @@ var option = {
             ],
             function (ec) {
             	candleStickChart = ec.init(document.getElementById('candleStickChart'));
+				var eConfig = require('echarts/config');
+				
             	candleStickChart.setOption(option);
-				candleStickChart.on(ecConfig.EVENT.CLICK, eConsole);
-				candleStickChart.on(ecConfig.EVENT.DBLCLICK, eConsole);
+				candleStickChart.on(eConfig.EVENT.CLICK, eConsole);
+				candleStickChart.on(eConfig.EVENT.DBLCLICK, eConsole);
+				candleStickChart.on(eConfig.EVENT.HOVER, eConsole);
             }
     );
 	
